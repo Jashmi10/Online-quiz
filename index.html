@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizzy Time Machine</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap">
+</head>
+<body>
+  <!-- Login Page -->
+  <div class="login-page" id="login-page">
+    <div class="gradient-bg">
+      <div class="container login-container">
+        <h1 class="title">Quizzy Time Machine</h1>
+        <p class="subtitle">Please login to continue</p>
+        
+        <form class="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <div class="button-group">
+            <button class="btn" onclick="document.getElementById('login-page').style.display='none'; document.getElementById('mode-select').style.display='block';">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode Select Page -->
+  <div class="mode-select-page" id="mode-select" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <h1 class="title">Quizzy Time Machine</h1>
+        <p class="subtitle">Are you a Teacher or a Student?</p>
+        
+        <div class="mode-cards">
+          <div class="mode-card" onclick="document.getElementById('mode-select').style.display='none'; document.getElementById('teacher-page').style.display='block';">
+            <div class="icon">👨‍🏫</div>
+            <h2>Teacher</h2>
+            <p>Create and manage quizzes for your classroom</p>
+            <span class="mode-label">Mode</span>
+          </div>
+          
+          <div class="mode-card" onclick="document.getElementById('mode-select').style.display='none'; document.getElementById('student-page').style.display='block';">
+            <div class="icon">👨‍🎓</div>
+            <h2>Student</h2>
+            <p>Take quizzes and test your knowledge!</p>
+            <span class="mode-label">Mode</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher Page -->
+  <div class="teacher-page" id="teacher-page" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <div class="header">
+          <h1 class="title">Teacher Dashboard</h1>
+          <button class="btn back-btn" onclick="document.getElementById('teacher-page').style.display='none'; document.getElementById('mode-select').style.display='block';">Back to Mode Select</button>
+        </div>
+        
+        <div class="dashboard-content">
+          <div class="quiz-actions">
+            <button class="btn create-btn" onclick="document.getElementById('teacher-page').style.display='none'; document.getElementById('create-quiz').style.display='block';">+ Create New Quiz</button>
+          </div>
+          
+          <div class="quiz-list">
+            <h2>Your Quizzes</h2>
+            <div class="quiz-item">
+              <div class="quiz-info">
+                <h3>Sample History Quiz</h3>
+                <p>4 questions</p>
+              </div>
+              <div class="quiz-actions">
+                <span class="check-icon">✓</span>
+              </div>
+            </div>
+            <div class="quiz-item">
+              <div class="quiz-info">
+                <h3>Science Quiz: Gravity</h3>
+                <p>5 questions</p>
+              </div>
+              <div class="quiz-actions">
+                <span class="check-icon">✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Quiz Page -->
+  <div class="create-quiz-page" id="create-quiz" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <div class="header">
+          <h1 class="title">Create New Quiz</h1>
+          <button class="btn back-btn" onclick="document.getElementById('create-quiz').style.display='none'; document.getElementById('teacher-page').style.display='block';">Back to Dashboard</button>
+        </div>
+        
+        <form class="quiz-form">
+          <div class="form-group">
+            <label for="quiz-title">Quiz Title</label>
+            <input type="text" id="quiz-title" placeholder="Enter quiz title" required>
+          </div>
+          
+          <div class="question-section">
+            <h2>Question 1</h2>
+            <div class="form-group">
+              <label for="question-text">Question Text</label>
+              <input type="text" id="question-text" placeholder="Enter your question" required>
+            </div>
+            
+            <div class="options-section">
+              <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="text" id="option1" placeholder="Enter option 1" required>
+                <label class="radio-container">Correct Answer
+                  <input type="radio" name="correct-answer" checked>
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              
+              <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="text" id="option2" placeholder="Enter option 2" required>
+                <label class="radio-container">Correct Answer
+                  <input type="radio" name="correct-answer">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              
+              <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="text" id="option3" placeholder="Enter option 3" required>
+                <label class="radio-container">Correct Answer
+                  <input type="radio" name="correct-answer">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              
+              <div class="form-group">
+                <label for="option4">Option 4</label>
+                <input type="text" id="option4" placeholder="Enter option 4" required>
+                <label class="radio-container">Correct Answer
+                  <input type="radio" name="correct-answer">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" class="btn add-question-btn">+ Add Another Question</button>
+            <button type="button" class="btn save-quiz-btn" onclick="document.getElementById('create-quiz').style.display='none'; document.getElementById('teacher-page').style.display='block';">Save Quiz</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Page -->
+  <div class="student-page" id="student-page" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <div class="header">
+          <h1 class="title">Student Dashboard</h1>
+          <button class="btn back-btn" onclick="document.getElementById('student-page').style.display='none'; document.getElementById('mode-select').style.display='block';">Back to Mode Select</button>
+        </div>
+        
+        <div class="available-quizzes">
+          <h2>Available Quizzes</h2>
+          
+          <div class="quiz-list">
+            <div class="quiz-item" onclick="document.getElementById('student-page').style.display='none'; document.getElementById('take-quiz').style.display='block';">
+              <div class="quiz-info">
+                <h3>Sample History Quiz</h3>
+                <p>4 questions</p>
+              </div>
+              <div class="quiz-actions">
+                <span class="take-icon">▶</span>
+              </div>
+            </div>
+            
+            <div class="quiz-item" onclick="document.getElementById('student-page').style.display='none'; document.getElementById('take-quiz').style.display='block';">
+              <div class="quiz-info">
+                <h3>Science Quiz: Gravity</h3>
+                <p>5 questions</p>
+              </div>
+              <div class="quiz-actions">
+                <span class="take-icon">▶</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Take Quiz Page -->
+  <div class="take-quiz-page" id="take-quiz" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <div class="header">
+          <h1 class="title">Sample History Quiz</h1>
+          <div class="timer">Time Left: 30s</div>
+        </div>
+        
+        <div class="quiz-progress">
+          <div class="progress-bar">
+            <div class="progress" style="width: 25%;"></div>
+          </div>
+          <div class="progress-text">Question 1 of 4</div>
+        </div>
+        
+        <div class="question-container">
+          <h2 class="question-text">Who was the first President of the United States?</h2>
+          
+          <form class="options-form">
+            <div class="option">
+              <input type="radio" id="opt1" name="answer">
+              <label for="opt1">George Washington</label>
+            </div>
+            
+            <div class="option">
+              <input type="radio" id="opt2" name="answer">
+              <label for="opt2">Thomas Jefferson</label>
+            </div>
+            
+            <div class="option">
+              <input type="radio" id="opt3" name="answer">
+              <label for="opt3">Abraham Lincoln</label>
+            </div>
+            
+            <div class="option">
+              <input type="radio" id="opt4" name="answer">
+              <label for="opt4">John Adams</label>
+            </div>
+          </form>
+          
+          <div class="quiz-navigation">
+            <button class="btn next-btn" onclick="document.getElementById('take-quiz').style.display='none'; document.getElementById('quiz-results').style.display='block';">Next Question</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Results Page -->
+  <div class="quiz-results-page" id="quiz-results" style="display: none;">
+    <div class="gradient-bg">
+      <div class="container">
+        <div class="results-container">
+          <h1 class="title">Quiz Complete!</h1>
+          
+          <div class="score-card">
+            <div class="score">
+              <span class="score-value">3</span>
+              <span class="score-total">/4</span>
+            </div>
+            <p class="score-text">Great job!</p>
+          </div>
+          
+          <div class="results-actions">
+            <button class="btn" onclick="document.getElementById('quiz-results').style.display='none'; document.getElementById('student-page').style.display='block';">Back to Quizzes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
